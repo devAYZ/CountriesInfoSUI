@@ -4,5 +4,12 @@
 <dict>
 	<key>RestCountriesBaseURL</key>
 	<string>https://restcountries.com</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<true/>
+		<key>UISceneConfigurations</key>
+		<dict/>
+	</dict>
 </dict>
 </plist>
