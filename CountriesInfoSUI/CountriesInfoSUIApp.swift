@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct CountriesInfoSUIApp: App {
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
+    init() {}
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
