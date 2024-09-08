@@ -6,7 +6,7 @@
 //
 
 import Foundation
-//import GoogleSignIn
+import GoogleSignIn
 
 protocol DataManagerInjector {
     var dataManager: DataManager { get }
@@ -52,6 +52,6 @@ final class DataManager {
     func logOut() {
         UserDefaultCache.shared.removeObject(key: .userProfile)
         FileManagerCache.shared.removeObject(key: .allCountries)
-//        GIDSignIn.sharedInstance.signOut()
+        GIDSignIn.sharedInstance.signOut()
     }
 }

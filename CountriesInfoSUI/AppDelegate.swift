@@ -19,6 +19,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         application.isIdleTimerDisabled = true
         Thread.sleep(forTimeInterval: 1.8) // Set sleep wait interval
+        
+        UINavigationBar.appearance().backIndicatorImage = UIImage(systemName: "arrow.backward.circle.fill")
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(systemName: "arrow.backward.circle.fill")
         return true
     }
 }
