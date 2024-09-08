@@ -30,6 +30,8 @@ struct CountriesInfoSUIApp: App, DataManagerInjector {
                                 email: user?.profile?.email,
                                 imageURL: user?.profile?.imageURL(withDimension: .image200)
                             )
+                            let _ = user?.idToken
+                            let _ = user?.accessToken
                         }
                     }
                 }

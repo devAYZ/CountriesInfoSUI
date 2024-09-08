@@ -9,10 +9,12 @@ import SwiftUI
 
 struct NavigatorDirector: View, DataManagerInjector {
     
+    // MARK: Properties
     @State private var scale: CGFloat = 1.0
     @State private var navigateToSignIn = false
     @State private var navigateToHome = false
     
+    // MARK: Main View
     var body: some View {
         NavigationView {
             if navigateToHome {
@@ -37,17 +39,17 @@ struct NavigatorDirector: View, DataManagerInjector {
     
     var imageStackView: some View {
         ZStack {
-            Image("world-map-big")
+            Image(IConstants.worldMap)
                 .aspectRatio(contentMode: .fill)
-                .opacity(0.12)
+                .opacity(0.1)
             backgroundImageView
         }
     }
     
     var backgroundImageView: some View {
-        Image("Sweden-transparent")
+        Image(IConstants.swedenTransparent)
             .aspectRatio(contentMode: .fill)
-            .opacity(0.35)
+            .opacity(0.3)
             .scaleEffect(scale)
             .onAppear {
                 // First animation (shrink)

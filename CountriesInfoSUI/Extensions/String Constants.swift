@@ -10,6 +10,8 @@ import Foundation
 struct SConstants {
     // App
     static let appName = "Countries Info"
+    static let welcome = "Welcome"
+    static let signinMessage = "Sign in to search and display details of your favourite country"
     
     // Error
     static let error = "Error"
@@ -33,4 +35,9 @@ struct SConstants {
     static let countryName = "Country C'Name"
     static let capitalCity = "Capital City"
     static let currencySign = "Currency Sign"
+}
+
+struct IConstants {
+    static let swedenTransparent = "Sweden-transparent"
+    static let worldMap = "world-map-big"
 }
