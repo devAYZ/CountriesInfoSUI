@@ -10,36 +10,46 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State var searchText = ""
+    // MARK: Properties
     @ObservedObject var homeVM = HomeViewModel.shared
+    @State private var selectedCountry: CountriesResponse? = nil
+    @State private var isPresentingDetail = false
     
     // MARK: Main View
     var body: some View {
         ZStack {
             EmptyView()
             VStack {
-                searchBar
+                // Search View
+                SearchBar
                     .frame(maxWidth: .infinity)
                     .clipped()
-                
-                List(homeVM.tempCountry, id: \.id) { country in
-                    NavigationLink(destination: EmptyView()) {
-                        CountriesListCell(countryData: country)
-                    }
+                // List View
+                List(homeVM.tempCountry ?? .init(), id: \.id) { country in
+                    CountriesListCell(countryData: country)
+                        .onTapGesture {
+                            selectedCountry = country // Set the selected user and toggle presentation
+                            isPresentingDetail = true
+                        }
                 }
-                
+                .sheet(item: $selectedCountry) { country in
+                    CountryDetailView(countryData: country) // Present UserDetailView modally
+                }
             }
         }
         .navigationBarBackButtonHidden(true)
         .navigationTitle(SConstants.favCountriesList)
         .navigationBarTitleDisplayMode(.large)
+        .onAppear {
+            homeVM.fetchCountryList()
+        }
     }
     
-    var searchBar: some View {
+    var SearchBar: some View {
         HStack {
             Image(IConstants.search)
             if #available(iOS 15.0, *) {
-                TextField(SConstants.searchHint, text: $searchText)
+                TextField(SConstants.searchHint, text: $homeVM.searchText)
                     .autocorrectionDisabled()
                     .autocapitalization(.none)
                     .onSubmit {
@@ -47,7 +57,7 @@ struct HomeView: View {
                     }
             } else {
                 // Fallback on earlier versions
-                TextField(SConstants.searchHint, text: $searchText)
+                TextField(SConstants.searchHint, text: $homeVM.searchText)
             }
         }
         .font(.system(size: 17, weight: .regular))

@@ -16,6 +16,7 @@ struct SigninView: View, DataManagerInjector {
     @State private var showAlert = false
     @State private var showAlertTitle = SConstants.error
     @State private var showAlertMessage = SConstants.dataNA
+    @State private var backgroundTask: UIBackgroundTaskIdentifier = .invalid
     
     // MARK: Main View
     var body: some View {
@@ -34,7 +35,7 @@ struct SigninView: View, DataManagerInjector {
                         .fontWeight(.regular)
                         .multilineTextAlignment(.center)
                     // Google sign-in button
-                    GoogleSignInButton(style: .wide, action: handleSignInButton)
+                    GoogleSignInButton(style: .wide, action: signInButton)
                         .frame(width: 120)
                         .padding(.top, 25)
                     // NavigationLink
@@ -49,6 +50,19 @@ struct SigninView: View, DataManagerInjector {
         .alert(isPresented: $showAlert, content: {
             Alert(title: Text(showAlertTitle), message: Text(showAlertMessage))
         })
+    }
+    
+    private func signInButton() {
+        backgroundTask = UIApplication.shared.beginBackgroundTask(withName: "Google_Signin") {[self] in
+            // This is the expiration handler.
+            // It is called if the background time is about to expire.
+            self.endBackgroundTask()
+        }
+        
+        // Google Signin
+        handleSignInButton()
+        
+        endBackgroundTask()
     }
     
     func handleSignInButton() {
@@ -73,6 +87,13 @@ struct SigninView: View, DataManagerInjector {
             
             // Trigger naviagate to home
             navigateToHome = true
+        }
+    }
+    
+    private func endBackgroundTask() {
+        if backgroundTask != .invalid {
+            UIApplication.shared.endBackgroundTask(backgroundTask)
+            backgroundTask = .invalid
         }
     }
 }

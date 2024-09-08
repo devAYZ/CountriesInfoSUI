@@ -18,3 +18,11 @@ This version emphasizes the use of SwiftUI while making the statement clearer an
 - Swift UI
 - iOS 14.0+
 - Xcode 14+
+
+## Dependencies
+- Google Sign-In: Implements user authentication.
+- Kingfisher: Handles image loading from URLs and strings.
+
+
+## Network Call Implemtation
+- URLSession Implemtation

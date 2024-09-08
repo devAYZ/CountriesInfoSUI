@@ -11,8 +11,10 @@ import SwiftUI
 // MARK: Countries List Cell
 struct CountriesListCell: View {
     
+    // MARK: Properties
     var countryData: CountriesResponse
     
+    // MARK: Main View
     var body: some View {
         HStack(alignment: .center) {
             // Flag
@@ -21,8 +23,8 @@ struct CountriesListCell: View {
                     Image(IConstants.dummy)
                 }
                 .loadDiskFileSynchronously()
-                .cacheMemoryOnly()
-                .fade(duration: 0.15)
+                .fromMemoryCacheOrRefresh()
+                .fade(duration: 0.10)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 40, height: 40)
@@ -48,6 +50,10 @@ struct CountriesListCell: View {
                 .lineLimit(1)
                 .foregroundColor(.green)
                 .font(.system(size: 18, weight: .medium))
+            
+            // Forward Image
+            Image(systemName: "chevron.forward")
+                .frame(width: 24, height: 16)
         }
     }
 }

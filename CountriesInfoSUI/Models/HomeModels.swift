@@ -10,7 +10,7 @@ import Foundation
 typealias CountriesResponseList = [CountriesResponse]
 
 // MARK: CountriesResponse
-struct CountriesResponse: Codable {
+struct CountriesResponse: Codable, Identifiable {
     var id: UUID? = UUID()
     var name: Name?
     var tld: [String]?
@@ -43,6 +43,7 @@ struct CountriesResponse: Codable {
     var postalCode: PostalCode?
     
     init(
+        id: UUID = UUID(),
         name: Name? = nil, tld: [String]? = nil, cca2: String? = nil,
         ccn3: String? = nil, cca3: String? = nil, independent: Bool? = nil,
         status: String? = nil, unMember: Bool? = nil, currencies: [String : Currency]? = nil,
@@ -56,6 +57,7 @@ struct CountriesResponse: Codable {
         capitalInfo: [String : [Double]]? = nil, cioc: String? = nil, fifa: String? = nil,
         borders: [String]? = nil, gini: [String : Double]? = nil, postalCode: PostalCode? = nil
     ) {
+        self.id = id
         self.name = name
         self.tld = tld
         self.cca2 = cca2
