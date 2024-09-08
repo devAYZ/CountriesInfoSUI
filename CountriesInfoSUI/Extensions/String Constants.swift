@@ -40,4 +40,6 @@ struct SConstants {
 struct IConstants {
     static let swedenTransparent = "Sweden-transparent"
     static let worldMap = "world-map-big"
+    static let dummy = "dummy"
+    static let search = "search-small"
 }

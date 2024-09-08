@@ -13,6 +13,7 @@ struct NavigatorDirector: View, DataManagerInjector {
     @State private var scale: CGFloat = 1.0
     @State private var navigateToSignIn = false
     @State private var navigateToHome = false
+    @State private var hideFaintBg = false
     
     // MARK: Main View
     var body: some View {
@@ -41,7 +42,7 @@ struct NavigatorDirector: View, DataManagerInjector {
         ZStack {
             Image(IConstants.worldMap)
                 .aspectRatio(contentMode: .fill)
-                .opacity(0.1)
+                .opacity(hideFaintBg ? 0 : 0.1)
             backgroundImageView
         }
     }
@@ -59,6 +60,7 @@ struct NavigatorDirector: View, DataManagerInjector {
                 // Second animation (grow)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
                     withAnimation(.easeInOut(duration: 0.8)) {
+                        hideFaintBg = true
                         scale = 3.0
                     }
                 }

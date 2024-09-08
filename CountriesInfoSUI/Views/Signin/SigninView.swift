@@ -35,7 +35,7 @@ struct SigninView: View, DataManagerInjector {
                         .multilineTextAlignment(.center)
                     // Google sign-in button
                     GoogleSignInButton(style: .wide, action: handleSignInButton)
-                        .frame(width: 110)
+                        .frame(width: 120)
                         .padding(.top, 25)
                     // NavigationLink
                     NavigationLink(destination: HomeView(), isActive: $navigateToHome) {

@@ -11,6 +11,7 @@ typealias CountriesResponseList = [CountriesResponse]
 
 // MARK: CountriesResponse
 struct CountriesResponse: Codable {
+    var id: UUID? = UUID()
     var name: Name?
     var tld: [String]?
     var cca2, ccn3, cca3: String?
