@@ -77,6 +77,7 @@
 		04B09EC92C8DA6BE00ABA367 /* SigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninView.swift; sourceTree = "<group>"; };
 		04B09ECC2C8DA6D200ABA367 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B7709EF82C8DC12200BBBD7D /* ApplicationUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUtility.swift; sourceTree = "<group>"; };
+		B7709EFA2C8DCDD000BBBD7D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +110,7 @@
 		048F30B22C8C868A007582F0 = {
 			isa = PBXGroup;
 			children = (
+				B7709EFA2C8DCDD000BBBD7D /* README.md */,
 				048F30BD2C8C868A007582F0 /* CountriesInfoSUI */,
 				048F30CE2C8C868D007582F0 /* CountriesInfoSUITests */,
 				048F30D82C8C868D007582F0 /* CountriesInfoSUIUITests */,
