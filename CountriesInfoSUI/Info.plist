@@ -11,13 +11,17 @@
 		<key>UISceneConfigurations</key>
 		<dict/>
 	</dict>
-    <key>CLIENT_ID</key>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>com.googleusercontent.apps.979858473169-v3bj4kt3mbrc2d94rsql9fc96quvfq9n</string>
+            </array>
+        </dict>
+    </array>
+    <key>GIDClientID</key>
     <string>979858473169-v3bj4kt3mbrc2d94rsql9fc96quvfq9n.apps.googleusercontent.com</string>
-    <key>REVERSED_CLIENT_ID</key>
-    <string>com.googleusercontent.apps.979858473169-v3bj4kt3mbrc2d94rsql9fc96quvfq9n</string>
-    <key>PLIST_VERSION</key>
-    <string>1</string>
-    <key>BUNDLE_ID</key>
-    <string>com.devAYZ.CountriesInfoSUI</string>
+    
 </dict>
 </plist>

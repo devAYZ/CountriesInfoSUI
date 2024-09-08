@@ -30,6 +30,7 @@
 		04B09ECA2C8DA6BE00ABA367 /* SigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B09EC92C8DA6BE00ABA367 /* SigninView.swift */; };
 		04B09ECD2C8DA6D200ABA367 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B09ECC2C8DA6D200ABA367 /* HomeView.swift */; };
 		04B09ED02C8DAB7E00ABA367 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 04B09ECF2C8DAB7E00ABA367 /* GoogleSignIn */; };
+		B7709EF92C8DC12200BBBD7D /* ApplicationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7709EF82C8DC12200BBBD7D /* ApplicationUtility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		04B09EC12C8D9FFF00ABA367 /* UserProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileModels.swift; sourceTree = "<group>"; };
 		04B09EC92C8DA6BE00ABA367 /* SigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninView.swift; sourceTree = "<group>"; };
 		04B09ECC2C8DA6D200ABA367 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B7709EF82C8DC12200BBBD7D /* ApplicationUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				048F30E82C8C8966007582F0 /* AppDelegate.swift */,
 				048F30C22C8C868D007582F0 /* Assets.xcassets */,
 				048F30FC2C8C8CE5007582F0 /* LaunchScreen.storyboard */,
+				B7709EF82C8DC12200BBBD7D /* ApplicationUtility.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				048F30F92C8C8B7B007582F0 /* Int + Extension.swift in Sources */,
 				048F30C12C8C868A007582F0 /* ContentView.swift in Sources */,
 				048F30F52C8C8B57007582F0 /* String Constants.swift in Sources */,
+				B7709EF92C8DC12200BBBD7D /* ApplicationUtility.swift in Sources */,
 				04B09EBD2C8D9F8C00ABA367 /* DataManager.swift in Sources */,
 				048F30EE2C8C8B05007582F0 /* InfoDicManager.swift in Sources */,
 				04B09ECA2C8DA6BE00ABA367 /* SigninView.swift in Sources */,
