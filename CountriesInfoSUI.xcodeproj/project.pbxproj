@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		048F30BF2C8C868A007582F0 /* CountriesInfoSUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048F30BE2C8C868A007582F0 /* CountriesInfoSUIApp.swift */; };
-		048F30C12C8C868A007582F0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048F30C02C8C868A007582F0 /* ContentView.swift */; };
 		048F30C32C8C868D007582F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048F30C22C8C868D007582F0 /* Assets.xcassets */; };
 		048F30C62C8C868D007582F0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048F30C52C8C868D007582F0 /* Preview Assets.xcassets */; };
 		048F30D02C8C868D007582F0 /* CountriesInfoSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048F30CF2C8C868D007582F0 /* CountriesInfoSUITests.swift */; };
@@ -59,7 +58,6 @@
 /* Begin PBXFileReference section */
 		048F30BB2C8C868A007582F0 /* CountriesInfoSUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountriesInfoSUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		048F30BE2C8C868A007582F0 /* CountriesInfoSUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesInfoSUIApp.swift; sourceTree = "<group>"; };
-		048F30C02C8C868A007582F0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		048F30C22C8C868D007582F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		048F30C52C8C868D007582F0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		048F30CB2C8C868D007582F0 /* CountriesInfoSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountriesInfoSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,7 +146,6 @@
 				B7709F022C8E07F500BBBD7D /* NetworkClass */,
 				04B09EBE2C8D9FB700ABA367 /* Models */,
 				048F30FE2C8D7B00007582F0 /* Views */,
-				048F30C02C8C868A007582F0 /* ContentView.swift */,
 				048F30F32C8C8B45007582F0 /* Extensions */,
 				048F30EC2C8C8AF4007582F0 /* Managers */,
 				048F30EA2C8C896D007582F0 /* Supporting Files */,
@@ -437,7 +434,6 @@
 				04B09EC22C8D9FFF00ABA367 /* UserProfileModels.swift in Sources */,
 				048F30F22C8C8B25007582F0 /* UserDefaultsManager.swift in Sources */,
 				048F30F92C8C8B7B007582F0 /* Int + Extension.swift in Sources */,
-				048F30C12C8C868A007582F0 /* ContentView.swift in Sources */,
 				B7709F052C8E07F500BBBD7D /* NetworkModels.swift in Sources */,
 				048F30F52C8C8B57007582F0 /* String Constants.swift in Sources */,
 				B7709EF92C8DC12200BBBD7D /* ApplicationUtility.swift in Sources */,

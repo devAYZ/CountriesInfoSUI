@@ -8,12 +8,13 @@
 import Kingfisher
 import SwiftUI
 
-struct HomeView: View {
+struct HomeView: View, DataManagerInjector {
     
     // MARK: Properties
     @ObservedObject var homeVM = HomeViewModel.shared
     @State private var selectedCountry: CountriesResponse? = nil
     @State private var isPresentingDetail = false
+    @State private var showAlert = false
     
     // MARK: Main View
     var body: some View {
@@ -25,8 +26,9 @@ struct HomeView: View {
                     .frame(maxWidth: .infinity)
                     .clipped()
                 // List View
-                List(homeVM.tempCountry ?? .init(), id: \.id) { country in
+                List(homeVM.fetchedCountyLists ?? .init(), id: \.name?.common) { country in
                     CountriesListCell(countryData: country)
+                        .contentShape(Rectangle()) // Make the entire row tappable
                         .onTapGesture {
                             selectedCountry = country // Set the selected user and toggle presentation
                             isPresentingDetail = true
@@ -40,6 +42,21 @@ struct HomeView: View {
         .navigationBarBackButtonHidden(true)
         .navigationTitle(SConstants.favCountriesList)
         .navigationBarTitleDisplayMode(.large)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button("Sign Out") {
+                    showAlert = true
+                }
+                .alert(isPresented: $showAlert, content: {
+                    //Alert(title: Text(showAlertTitle), message: Text(showAlertMessage))
+                    Alert(title: Text("Are you sure \(dataManager.userProfile?.name ?? "")?"),
+                          message: Text((dataManager.userProfile?.name ?? "") + (dataManager.userProfile?.email ?? "")),
+                          primaryButton: .cancel(), secondaryButton: .default(Text("Yes"), action: {
+                        print("yess")
+                    }))
+                })
+            }
+        }
         .onAppear {
             homeVM.fetchCountryList()
         }
@@ -62,7 +79,7 @@ struct HomeView: View {
         }
         .font(.system(size: 17, weight: .regular))
         .padding(.horizontal, 16)
-        .frame(height: 40)
+        .frame(height: 50)
     }
     
     
