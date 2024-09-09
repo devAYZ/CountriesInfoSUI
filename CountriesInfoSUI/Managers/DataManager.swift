@@ -49,9 +49,8 @@ final class DataManager {
         "v\(InfoDicManager.getStringValue(key: .appVersion))(\(InfoDicManager.getStringValue(key: .appVersionBuild)))"
     }
     
-    func logOut() {
+    func signOut() {
         UserDefaultCache.shared.removeObject(key: .userProfile)
-        FileManagerCache.shared.removeObject(key: .allCountries)
         GIDSignIn.sharedInstance.signOut()
     }
 }

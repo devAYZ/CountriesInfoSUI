@@ -15,51 +15,67 @@ struct HomeView: View, DataManagerInjector {
     @State private var selectedCountry: CountriesResponse? = nil
     @State private var isPresentingDetail = false
     @State private var showAlert = false
+    @State private var signout = false
     
     // MARK: Main View
     var body: some View {
-        ZStack {
-            EmptyView()
-            VStack {
-                // Search View
-                SearchBar
-                    .frame(maxWidth: .infinity)
-                    .clipped()
-                // List View
-                List(homeVM.fetchedCountyLists ?? .init(), id: \.name?.common) { country in
-                    CountriesListCell(countryData: country)
-                        .contentShape(Rectangle()) // Make the entire row tappable
-                        .onTapGesture {
-                            selectedCountry = country // Set the selected user and toggle presentation
-                            isPresentingDetail = true
-                        }
+        
+        NavigationView {
+            
+            ZStack {
+                EmptyView()
+                
+                
+                
+                VStack {
+                    // Search View
+                    SearchBar
+                        .frame(maxWidth: .infinity)
+                        .clipped()
+                    // List View
+                    List(homeVM.fetchedCountyLists ?? .init(), id: \.name?.common) { country in
+                        CountriesListCell(countryData: country)
+                            .contentShape(Rectangle()) // Make the entire row tappable
+                            .onTapGesture {
+                                selectedCountry = country // Set the selected user and toggle presentation
+                                isPresentingDetail = true
+                            }
+                    }
+                    .sheet(item: $selectedCountry) { country in
+                        CountryDetailView(countryData: country) // Present UserDetailView modally
+                    }
                 }
-                .sheet(item: $selectedCountry) { country in
-                    CountryDetailView(countryData: country) // Present UserDetailView modally
+                
+                NavigationLink(destination: SigninView(), isActive: $signout) {
+                    EmptyView()
+                }
+                
+            }
+            .navigationTitle(SConstants.favCountriesList)
+            .navigationBarTitleDisplayMode(.large)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Sign Out") {
+                        showAlert = true
+                    }
+                    .alert(isPresented: $showAlert, content: {
+                        Alert(title: Text("Are you sure \(dataManager.userProfile?.name ?? "")?"),
+                              message: Text((dataManager.userProfile?.name ?? "") + (dataManager.userProfile?.email ?? "")),
+                              primaryButton: .cancel(),
+                              secondaryButton: .default(Text("Yes"), action: {
+                            // Trigger navigation to the sign-in view
+                            dataManager.signOut()
+                            signout = true
+                        }))
+                    })
                 }
             }
         }
         .navigationBarBackButtonHidden(true)
-        .navigationTitle(SConstants.favCountriesList)
-        .navigationBarTitleDisplayMode(.large)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button("Sign Out") {
-                    showAlert = true
-                }
-                .alert(isPresented: $showAlert, content: {
-                    //Alert(title: Text(showAlertTitle), message: Text(showAlertMessage))
-                    Alert(title: Text("Are you sure \(dataManager.userProfile?.name ?? "")?"),
-                          message: Text((dataManager.userProfile?.name ?? "") + (dataManager.userProfile?.email ?? "")),
-                          primaryButton: .cancel(), secondaryButton: .default(Text("Yes"), action: {
-                        print("yess")
-                    }))
-                })
-            }
-        }
         .onAppear {
             homeVM.fetchCountryList()
         }
+        
     }
     
     var SearchBar: some View {
