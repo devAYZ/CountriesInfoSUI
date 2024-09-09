@@ -25,8 +25,6 @@ struct HomeView: View, DataManagerInjector {
             ZStack {
                 EmptyView()
                 
-                
-                
                 VStack {
                     // Search View
                     SearchBar
@@ -106,9 +104,10 @@ struct HomeView: View, DataManagerInjector {
         try? await Task.sleep(nanoseconds: 1_000_000)
     }
 }
-
+/*
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
     }
 }
+*/

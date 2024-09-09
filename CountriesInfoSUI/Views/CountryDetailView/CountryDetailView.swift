@@ -49,22 +49,29 @@ struct CountryDetailView: View {
                             .font(.system(size: 24, weight: .medium))
                             .foregroundColor(.accentColor)
                             .padding(.bottom, -50)
+                            .multilineTextAlignment(.center)
                     }
                 }
                 
                 // Scrollable Country Info
                 ScrollView {
                     VStack(alignment: .leading, spacing: 15) {
-                        createHStack(SConstants.flag, value: countryData.flag)
-                        createHStack(SConstants.countryName, value: countryData.name?.common)
-                        createHStack(SConstants.capitalCity, value: countryData.capital?.joined(separator: ", "))
-                        createHStack("Continent Name", value: countryData.continents?.joined(separator: ", "))
-                        createHStack("Time Zone", value: countryData.timezones?.joined(separator: ", "))
-                        createHStack("Population", value: (countryData.population ?? 0).addCommaDelimiter())
-                        createHStack("Currency Name", value: countryData.currencies?.first?.value.name)
-                        createHStack(SConstants.currencySign, value: countryData.currencies?.first?.value.symbol)
-                        createHStack("Start of Week", value: countryData.startOfWeek?.capitalized)
-                        createHStack("Land borders", value: countryData.borders?.joined(separator: ", "))
+                        VStack(alignment: .leading, spacing: 15) {
+                            createHStack(SConstants.flag, value: countryData.flag)
+                            createHStack(SConstants.countryName, value: countryData.name?.common)
+                            createHStack(SConstants.capitalCity, value: countryData.capital?.joined(separator: ", "))
+                            createHStack("Continent Name", value: countryData.continents?.joined(separator: ", "))
+                            createHStack("Time Zone", value: countryData.timezones?.joined(separator: ", "))
+                            createHStack("Population", value: (countryData.population ?? 0).addCommaDelimiter())
+                            createHStack("Currency Name", value: countryData.currencies?.first?.value.name)
+                            createHStack(SConstants.currencySign, value: countryData.currencies?.first?.value.symbol)
+                            createHStack("Start of Week", value: countryData.startOfWeek?.capitalized)
+                            createHStack("Land borders", value: countryData.borders?.joined(separator: ", "))
+                        }
+                        
+                        VStack(alignment: .leading, spacing: 15) {
+                            createHStack("Land locked ?", value: countryData.landlocked?.description.capitalized)
+                        }
                     }
                 }
                 .frame(height: geo.size.height * 2 / 3)
