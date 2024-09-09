@@ -65,7 +65,6 @@ struct CountryDetailView: View {
                         createHStack(SConstants.currencySign, value: countryData.currencies?.first?.value.symbol)
                         createHStack("Start of Week", value: countryData.startOfWeek?.capitalized)
                         createHStack("Land borders", value: countryData.borders?.joined(separator: ", "))
-                        createHStack("Land locked ?", value: countryData.landlocked?.description.capitalized)
                     }
                 }
                 .frame(height: geo.size.height * 2 / 3)
@@ -87,7 +86,8 @@ struct CountryDetailView: View {
         }
     }
 }
-
+/*
 #Preview {
     CountryDetailView(countryData: .init())
 }
+*/

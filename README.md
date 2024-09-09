@@ -13,6 +13,10 @@ This version emphasizes the use of SwiftUI while making the statement clearer an
 - App design sketch on [excalidraw.com](https://excalidraw.com/#json=gwVmabhSE-E39JennRs8Y,mg1-w-W0Lw161FAf8FUfSw)
 
 
+## Demo Link
+- Demo Assets [link](https://drive.google.com/drive/folders/1rzs9FA3ksONY_2kJaEULQn7FQXNIcUJh?usp=sharing)
+
+
 ## Project Info
 - Swift 5.0+
 - Swift UI

@@ -57,7 +57,8 @@ struct CountriesListCell: View {
         }
     }
 }
-
-#Preview {
-    CountriesListCell(countryData: .init())
-}
+/*
+ #Preview {
+ CountriesListCell(countryData: .init())
+ }
+ */
