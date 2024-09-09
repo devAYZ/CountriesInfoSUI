@@ -14,6 +14,9 @@ class HomeViewModel: ObservableObject, DataManagerInjector {
     static let shared = HomeViewModel()
     @State var searchText = ""
     var networkClass: NetworkClassProtocol?
+    @Published var showAlert = false
+    @Published var showAlertTitle = SConstants.error
+    @Published var showAlertMessage = ""
     
     @Published var fetchedCountyLists: CountriesResponseList?
     
@@ -45,6 +48,8 @@ class HomeViewModel: ObservableObject, DataManagerInjector {
                     self.fetchedCountyLists = self.dataManager.allCountries
                 case .failure(let error):
                     print(error.localizedDescription)
+                    self.showAlertMessage = error.localizedDescription
+                    self.showAlert = true
                 }
             }
         })

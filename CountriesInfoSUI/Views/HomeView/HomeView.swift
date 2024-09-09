@@ -70,6 +70,9 @@ struct HomeView: View, DataManagerInjector {
             }
         }
         .navigationBarBackButtonHidden(true)
+        .alert(isPresented: $homeVM.showAlert, content: {
+            Alert(title: Text(homeVM.showAlertTitle), message: Text(homeVM.showAlertMessage))
+        })
         .onAppear {
             homeVM.fetchCountryList()
         }
