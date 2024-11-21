@@ -30,3 +30,7 @@ This version emphasizes the use of SwiftUI while making the statement clearer an
 
 ## Network Call Implemtation
 - URLSession Implemtation
+
+## Data Storage
+- User Default
+- File Manager
