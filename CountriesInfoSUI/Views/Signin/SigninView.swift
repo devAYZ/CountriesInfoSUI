@@ -26,11 +26,11 @@ struct SigninView: View, DataManagerInjector {
                     .aspectRatio(contentMode: .fill)
                     .opacity(0.1)
                 VStack(spacing: 15) {
-                    Text(SConstants.welcome)
+                    Text("Welcome")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundColor(.green)
-                    Text(SConstants.signinMessage)
+                    Text("Sign in to search and display details of your favourite country")
                         .font(.title2)
                         .fontWeight(.regular)
                         .multilineTextAlignment(.center)

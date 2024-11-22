@@ -10,8 +10,6 @@ import Foundation
 struct SConstants {
     // App
     static let appName = "Countries Info"
-    static let welcome = "Welcome"
-    static let signinMessage = "Sign in to search and display details of your favourite country"
     
     // Error
     static let error = "Error"
@@ -22,13 +20,6 @@ struct SConstants {
     static let cancel = "Cancel"
     static let startingNC = "STARTING.. Network call"
     static let completedNC = "COMPLETED.. Network call"
-    
-    // Home
-    static let searchHint = "Search by: Name, Capital, Currency"
-    static let favCountriesList = "Favourite Countries List"
-    
-    // Settings
-    static let signOut = "Sign out"
     
     // Details
     static let flag = "Flag"

@@ -1,0 +1,55 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Are you sure %@?" : {
+
+    },
+    "Favourite Countries List" : {
+      "localizations" : {
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favoritländer Lista"
+          }
+        }
+      }
+    },
+    "Search by: Name, Capital, Currency" : {
+
+    },
+    "Sign in to search and display details of your favourite country" : {
+      "localizations" : {
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Logga in för att söka och visa detaljer om ditt favoritland"
+          }
+        }
+      }
+    },
+    "Sign out" : {
+      "localizations" : {
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Logga ut"
+          }
+        }
+      }
+    },
+    "Welcome" : {
+      "localizations" : {
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Välkommen"
+          }
+        }
+      }
+    },
+    "Yes" : {
+
+    }
+  },
+  "version" : "1.0"
+}

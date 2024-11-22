@@ -1,0 +1,42 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "6Uq-vU-fMD.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"         ..in their Majority\"; ObjectID = \"6Uq-vU-fMD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "         ..in their Majority"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "..I deras majoritet"
+          }
+        }
+      }
+    },
+    "rUk-Jb-jFV.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Countries Info\"; ObjectID = \"rUk-Jb-jFV\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Countries Info"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Länder Info"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

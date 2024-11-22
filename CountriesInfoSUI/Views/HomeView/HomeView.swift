@@ -49,11 +49,11 @@ struct HomeView: View, DataManagerInjector {
                 }
                 
             }
-            .navigationTitle(SConstants.favCountriesList)
+            .navigationTitle("Favourite Countries List")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Sign Out") {
+                    Button("Sign out") {
                         showAlert = true
                     }
                     .alert(isPresented: $showAlert, content: {
@@ -83,7 +83,7 @@ struct HomeView: View, DataManagerInjector {
         HStack {
             Image(IConstants.search)
             if #available(iOS 15.0, *) {
-                TextField(SConstants.searchHint, text: $homeVM.searchText)
+                TextField("Search by: Name, Capital, Currency", text: $homeVM.searchText)
                     .autocorrectionDisabled()
                     .autocapitalization(.none)
                     .onSubmit {
@@ -91,7 +91,7 @@ struct HomeView: View, DataManagerInjector {
                     }
             } else {
                 // Fallback on earlier versions
-                TextField(SConstants.searchHint, text: $homeVM.searchText)
+                TextField("Search by: Name, Capital, Currency", text: $homeVM.searchText)
             }
         }
         .font(.system(size: 17, weight: .regular))
