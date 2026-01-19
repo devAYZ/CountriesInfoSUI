@@ -33,4 +33,5 @@ This version emphasizes the use of SwiftUI while making the statement clearer an
 
 ## Data Storage
 - User Default
+- App Storage
 - File Manager

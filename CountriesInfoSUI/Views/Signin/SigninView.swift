@@ -12,11 +12,12 @@ import SwiftUI
 struct SigninView: View, DataManagerInjector {
     
     // MARK: Properties
-    @State private var navigateToHome = false
     @State private var showAlert = false
     @State private var showAlertTitle = SConstants.error
     @State private var showAlertMessage = SConstants.dataNA
     @State private var backgroundTask: UIBackgroundTaskIdentifier = .invalid
+    
+    @Binding var destination: Destination
     
     // MARK: Main View
     var body: some View {
@@ -38,10 +39,6 @@ struct SigninView: View, DataManagerInjector {
                     GoogleSignInButton(style: .wide, action: signInButton)
                         .frame(width: 120)
                         .padding(.top, 25)
-                    // NavigationLink
-                    NavigationLink(destination: HomeView(), isActive: $navigateToHome) {
-                        EmptyView()
-                    }
                 }
                 .padding()
             }
@@ -86,7 +83,7 @@ struct SigninView: View, DataManagerInjector {
             )
             
             // Trigger naviagate to home
-            navigateToHome = true
+            destination = .home
         }
     }
     
@@ -98,8 +95,6 @@ struct SigninView: View, DataManagerInjector {
     }
 }
 
-struct SigninView_Previews: PreviewProvider {
-    static var previews: some View {
-        SigninView()
-    }
+#Preview {
+    SigninView(destination: .constant(.home))
 }

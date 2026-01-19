@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+enum Destination: CaseIterable {
+    case imageView
+    case home
+    case signin
+}
+
 struct NavigatorDirector: View, DataManagerInjector {
     
     // MARK: Properties
@@ -15,21 +21,25 @@ struct NavigatorDirector: View, DataManagerInjector {
     @State private var navigateToHome = false
     @State private var hideFaintBg = false
     
+    @State private var showImageView = false
+    @State private var destination: Destination = .imageView
+
+    
     // MARK: Main View
     var body: some View {
-        NavigationView {
-            if navigateToHome {
-                NavigationLink(destination: HomeView(), isActive: $navigateToHome) {
-                    imageStackView
+        
+        Group {
+            switch destination {
+            case .imageView:
+                imageStackView
+            case .home:
+                NavigationView {
+                    HomeView(destination: $destination)
                 }
-            } else {
-                NavigationLink(destination: SigninView(), isActive: $navigateToSignIn) {
-                    imageStackView
-                }
+            case .signin:
+                SigninView(destination: $destination)
             }
         }
-        .navigationBarTitleDisplayMode(.large)
-        .edgesIgnoringSafeArea(.all)
         .onAppear {
             // Navigate or handle further actions
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) {
@@ -72,7 +82,7 @@ struct NavigatorDirector: View, DataManagerInjector {
         var isUserLoggedIn: Bool {
             dataManager.userProfile != nil
         }
-        isUserLoggedIn ? (navigateToHome = true) : (navigateToSignIn = true)
+        isUserLoggedIn ? (destination = .home) : (destination = .signin)
     }
 }
 

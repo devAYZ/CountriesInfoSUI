@@ -15,58 +15,53 @@ struct HomeView: View, DataManagerInjector {
     @State private var selectedCountry: GithubUsers? = nil
     @State private var isPresentingDetail = false
     @State private var showAlert = false
-    @State private var signout = false
+    
+    @Binding var destination: Destination
     
     // MARK: Main View
     var body: some View {
         
-        NavigationView {
+        ZStack {
+            EmptyView()
             
-            ZStack {
-                EmptyView()
-                
-                VStack {
-                    // Search View
-                    SearchBar
-                        .frame(maxWidth: .infinity)
-                        .clipped()
-                    // List View
-                    List(homeVM.fetchedCountyLists, id: \.id ) { country in
-                        NavigationLink(
-                            destination: CountryDetailView(countryData: country),
-                            tag: country,
-                            selection: $selectedCountry
-                        ) {
-                            CountriesListCell(countryData: country)
-                        }
+            VStack {
+                // Search View
+                SearchBar
+                    .frame(maxWidth: .infinity)
+                    .clipped()
+                // List View
+                List(homeVM.fetchedCountyLists, id: \.id ) { country in
+                    NavigationLink(
+                        destination: CountryDetailView(countryData: country),
+                        tag: country,
+                        selection: $selectedCountry
+                    ) {
+                        CountriesListCell(countryData: country)
                     }
                 }
-                
-                NavigationLink(destination: SigninView(), isActive: $signout) {
-                    EmptyView()
-                }
-                
             }
-            .navigationTitle("Favourite Countries List")
-            .navigationBarTitleDisplayMode(.large)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Sign out") {
-                        showAlert = true
-                    }
-                    .alert(isPresented: $showAlert, content: {
-                        Alert(title: Text("Are you sure \(dataManager.userProfile?.name ?? "")?"),
-                              message: Text((dataManager.userProfile?.name ?? "") + (dataManager.userProfile?.email ?? "")),
-                              primaryButton: .cancel(),
-                              secondaryButton: .default(Text("Yes"), action: {
-                            // Trigger navigation to the sign-in view
-                            dataManager.signOut()
-                            signout = true
-                        }))
-                    })
+            
+        }
+        .navigationTitle("Favourite Countries List")
+        .navigationBarTitleDisplayMode(.large)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button("Sign out") {
+                    showAlert = true
                 }
+                .alert(isPresented: $showAlert, content: {
+                    Alert(title: Text("Are you sure \(dataManager.userProfile?.name ?? "")?"),
+                          message: Text((dataManager.userProfile?.name ?? "") + (dataManager.userProfile?.email ?? "")),
+                          primaryButton: .cancel(),
+                          secondaryButton: .default(Text("Yes"), action: {
+                        // Trigger navigation to the sign-in view
+                        dataManager.signOut()
+                        destination = .signin
+                    }))
+                })
             }
         }
+        
         .navigationBarBackButtonHidden(true)
         .alert(isPresented: $homeVM.showAlert, content: {
             Alert(title: Text(homeVM.showAlertTitle), message: Text(homeVM.showAlertMessage))
@@ -105,10 +100,7 @@ struct HomeView: View, DataManagerInjector {
         try? await Task.sleep(nanoseconds: 1_000_000)
     }
 }
-/*
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
+
+#Preview {
+    HomeView(destination: .constant(.home))
 }
-*/
