@@ -36,12 +36,14 @@ final class DataManager {
         }
     }
     
+    var allUsers: GithubUsersList?
+    
     var userProfile: UserProfile? {
         get {
-            return UserDefaultCache.shared.retrieveCachedObject(object: UserProfile.self, key: .userProfile)
+            return AppStorageManager.shared.retrieveCachedObject(object: UserProfile.self, key: .userProfile)
         }
         set(value){
-            UserDefaultCache.shared.cacheObject(object: value, key: .userProfile)
+            AppStorageManager.shared.cacheObject(object: value, key: .userProfile)
         }
     }
     
@@ -50,7 +52,7 @@ final class DataManager {
     }
     
     func signOut() {
-        UserDefaultCache.shared.removeObject(key: .userProfile)
+        AppStorageManager.shared.removeObject(key: .userProfile)
         GIDSignIn.sharedInstance.signOut()
     }
 }

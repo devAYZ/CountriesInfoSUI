@@ -12,7 +12,7 @@ struct HomeView: View, DataManagerInjector {
     
     // MARK: Properties
     @ObservedObject var homeVM = HomeViewModel.shared
-    @State private var selectedCountry: CountriesResponse? = nil
+    @State private var selectedCountry: GithubUsers? = nil
     @State private var isPresentingDetail = false
     @State private var showAlert = false
     @State private var signout = false
@@ -31,16 +31,14 @@ struct HomeView: View, DataManagerInjector {
                         .frame(maxWidth: .infinity)
                         .clipped()
                     // List View
-                    List(homeVM.fetchedCountyLists ?? .init(), id: \.name?.common) { country in
-                        CountriesListCell(countryData: country)
-                            .contentShape(Rectangle()) // Make the entire row tappable
-                            .onTapGesture {
-                                selectedCountry = country // Set the selected user and toggle presentation
-                                isPresentingDetail = true
-                            }
-                    }
-                    .sheet(item: $selectedCountry) { country in
-                        CountryDetailView(countryData: country) // Present UserDetailView modally
+                    List(homeVM.fetchedCountyLists, id: \.id ) { country in
+                        NavigationLink(
+                            destination: CountryDetailView(countryData: country),
+                            tag: country,
+                            selection: $selectedCountry
+                        ) {
+                            CountriesListCell(countryData: country)
+                        }
                     }
                 }
                 

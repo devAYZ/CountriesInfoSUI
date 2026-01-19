@@ -18,7 +18,7 @@ class HomeViewModel: ObservableObject, DataManagerInjector {
     @Published var showAlertTitle = SConstants.error
     @Published var showAlertMessage = ""
     
-    @Published var fetchedCountyLists: CountriesResponseList?
+    @Published var fetchedCountyLists: CountriesResponseList = .init()
     
     // MARK: Initialiser
     init(
@@ -34,24 +34,25 @@ class HomeViewModel: ObservableObject, DataManagerInjector {
         }
         
         guard !isDataCached else {
-            fetchedCountyLists = dataManager.allCountries
+            fetchedCountyLists = dataManager.allCountries ?? .init()
             return
         }
         
-        networkClass?.makeNetworkCall_Native(urlString: .allCountries, completion: { (response: Result<CountriesResponseList, NetworkError>) in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
+        networkClass?.makeNetworkCall_Native(urlString: .users) { (response: Result<[GithubUsers], NetworkError>) in
+            switch response {
+            case .success(let data):
+                DispatchQueue.main.async {
                     self.dataManager.allCountries = data
-                        .filter { $0.currencies != nil }
-                        .sorted(by: { $0.name?.common ?? "" < $1.name?.common ?? "" })
-                    self.fetchedCountyLists = self.dataManager.allCountries
-                case .failure(let error):
+                        .sorted(by: { $0.login?.lowercased() ?? "" < $1.login?.lowercased() ?? "" })
+                    self.fetchedCountyLists = self.dataManager.allCountries ?? .init()
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
                     print(error.localizedDescription)
                     self.showAlertMessage = error.localizedDescription
                     self.showAlert = true
                 }
             }
-        })
+        }
     }
 }

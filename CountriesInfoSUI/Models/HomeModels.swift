@@ -7,7 +7,7 @@
 import Foundation
 
 
-typealias CountriesResponseList = [CountriesResponse]
+typealias CountriesResponseList = [GithubUsers]
 
 // MARK: CountriesResponse
 struct CountriesResponse: Codable, Identifiable {

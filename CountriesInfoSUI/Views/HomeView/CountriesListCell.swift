@@ -12,13 +12,13 @@ import SwiftUI
 struct CountriesListCell: View {
     
     // MARK: Properties
-    var countryData: CountriesResponse
+    var countryData: GithubUsers
     
     // MARK: Main View
     var body: some View {
         HStack(alignment: .center) {
             // Flag
-            KFImage.url(URL(string: countryData.flags?.png ?? .orNA))
+            KFImage.url(URL(string: countryData.avatarURL ?? .orNA))
                 .placeholder {
                     Image(IConstants.dummy)
                 }
@@ -33,27 +33,23 @@ struct CountriesListCell: View {
             
             // Country Names
             VStack(alignment: .leading, spacing: 3) {
-                Text(countryData.name?.common ?? .orNA)
+                Text(countryData.login ?? .orNA)
                     .foregroundColor(.primary)
                     .lineLimit(1)
-                    .font(.system(size: 24, weight: .regular))
-                Text(countryData.capital?.first ?? .orNA)
+                    .font(.system(size: 18, weight: .regular))
+                Text(countryData.url ?? .orNA)
                     .foregroundColor(.secondary)
                     .lineLimit(1)
-                    .font(.system(size: 18, weight: .medium))
+                    .font(.system(size: 12, weight: .medium))
             }
             
             Spacer()
             
             // Currency
-            Text(countryData.currencies?.first?.value.symbol ?? .orNA)
+            Text("\(countryData.id ?? .zero)")
                 .lineLimit(1)
                 .foregroundColor(.green)
                 .font(.system(size: 18, weight: .medium))
-            
-            // Forward Image
-            Image(systemName: "chevron.forward")
-                .frame(width: 24, height: 16)
         }
     }
 }

@@ -28,7 +28,7 @@ final class NetworkClass: NetworkClassProtocol {
         completion: @escaping (Result<T, NetworkError>) -> ()
     ) {
         
-        let requestUrl = InfoDicManager.getStringValue(key: .restBaseUrl) + urlString.rawValue
+        let requestUrl = InfoDicManager.getStringValue(key: .githubUrl) + urlString.rawValue
         guard let url = URL(string: requestUrl) else {
             completion(.failure(.badUrl))
             return
