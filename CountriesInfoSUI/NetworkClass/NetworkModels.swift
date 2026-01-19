@@ -9,6 +9,8 @@ import Foundation
 
 enum Endpoint: String {
     case allCountries = "/v3.1/all"
+    
+    case users = "/users"
 }
 
 enum NetworkError: Error {

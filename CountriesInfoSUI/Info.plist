@@ -13,6 +13,8 @@
 	</array>
 	<key>GIDClientID</key>
 	<string>979858473169-v3bj4kt3mbrc2d94rsql9fc96quvfq9n.apps.googleusercontent.com</string>
+	<key>GithubURL</key>
+	<string>https://api.github.com</string>
 	<key>RestCountriesBaseURL</key>
 	<string>https://restcountries.com</string>
 </dict>

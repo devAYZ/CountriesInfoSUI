@@ -11,6 +11,7 @@ enum InfoDicKey: String {
     case appVersion = "CFBundleShortVersionString"
     case appVersionBuild = "CFBundleVersion"
     case restBaseUrl = "RestCountriesBaseURL"
+    case githubUrl = "GithubURL"
 }
 
 struct InfoDicManager {
