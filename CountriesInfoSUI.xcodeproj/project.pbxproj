@@ -30,6 +30,8 @@
 		04B09ED02C8DAB7E00ABA367 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 04B09ECF2C8DAB7E00ABA367 /* GoogleSignIn */; };
 		3A09538B2CF05C9100C25312 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 3A09538A2CF05C9100C25312 /* Localizable.xcstrings */; };
 		3A09538C2CF05F1E00C25312 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A09538E2CF05F1E00C25312 /* LaunchScreen.storyboard */; };
+		3A67DFC42F1E485800C729C2 /* AppStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A67DFC32F1E485800C729C2 /* AppStorageManager.swift */; };
+		3A67DFC62F1E487E00C729C2 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A67DFC52F1E487E00C729C2 /* CacheManager.swift */; };
 		B7709EF92C8DC12200BBBD7D /* ApplicationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7709EF82C8DC12200BBBD7D /* ApplicationUtility.swift */; };
 		B7709EFD2C8DEEBA00BBBD7D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B7709EFC2C8DEEBA00BBBD7D /* Kingfisher */; };
 		B7709EFF2C8E009800BBBD7D /* CountriesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7709EFE2C8E009800BBBD7D /* CountriesListCell.swift */; };
@@ -83,6 +85,8 @@
 		3A09538A2CF05C9100C25312 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		3A09538D2CF05F1E00C25312 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A09538F2CF05F1E00C25312 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/LaunchScreen.xcstrings; sourceTree = "<group>"; };
+		3A67DFC32F1E485800C729C2 /* AppStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageManager.swift; sourceTree = "<group>"; };
+		3A67DFC52F1E487E00C729C2 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		B7709EF82C8DC12200BBBD7D /* ApplicationUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUtility.swift; sourceTree = "<group>"; };
 		B7709EFA2C8DCDD000BBBD7D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B7709EFE2C8E009800BBBD7D /* CountriesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesListCell.swift; sourceTree = "<group>"; };
@@ -202,6 +206,8 @@
 				048F30ED2C8C8B05007582F0 /* InfoDicManager.swift */,
 				048F30EF2C8C8B25007582F0 /* FileManagerCache.swift */,
 				048F30F02C8C8B25007582F0 /* UserDefaultsManager.swift */,
+				3A67DFC52F1E487E00C729C2 /* CacheManager.swift */,
+				3A67DFC32F1E485800C729C2 /* AppStorageManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -434,6 +440,8 @@
 				B7709F012C8E00F700BBBD7D /* HomeViewModel.swift in Sources */,
 				048F31012C8D7B5A007582F0 /* NavigatorDirector.swift in Sources */,
 				048F30E92C8C8966007582F0 /* AppDelegate.swift in Sources */,
+				3A67DFC62F1E487E00C729C2 /* CacheManager.swift in Sources */,
+				3A67DFC42F1E485800C729C2 /* AppStorageManager.swift in Sources */,
 				04B09ECD2C8DA6D200ABA367 /* HomeView.swift in Sources */,
 				048F30F82C8C8B7B007582F0 /* String + Extension.swift in Sources */,
 				04B09EC02C8D9FC700ABA367 /* HomeModels.swift in Sources */,
